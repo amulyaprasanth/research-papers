@@ -87,8 +87,8 @@ def train(model:nn.Module,
                 test_loss += loss.item()
                 test_correct += (test_pred.argmax(1) == y).type(torch.float).sum().item()
         
-        train_correct/=len(train_dataloader)
-        test_correct/=len(test_dataloader)
+        train_correct/=len(train_dataloader.dataset)
+        test_correct/=len(test_dataloader.dataset)
         train_loss/=len(train_dataloader)
         test_loss/=len(test_dataloader)
         # Print out what's happening
